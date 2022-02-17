@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Plant Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ plant.name }}</span>
+        <p><strong>Description:</strong> {{ plant.description }}</p>
+        <p><strong>Sunlight Needs:</strong> {{ plant.sunlight }}</p>
+        <p><strong>Watering Needs:</strong> {{ plant.water }}</p>
+        <p><strong>Common Issues:</strong> {{ plant.issues }}</p>
+    </div>
+</div>
+
+{% endblock %}
