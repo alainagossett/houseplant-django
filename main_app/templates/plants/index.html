@@ -6,7 +6,7 @@
 
 {% for plant in plants %}
 <div class="card">
-    <a href="{% url 'detail' plant.id %}">
+    <a href="{% url 'detail' plant.id %}" style="color: #388E3C">
     <div class="card-content">
         <span class="card-title">{{ plant.name }}</span>
     </div>
