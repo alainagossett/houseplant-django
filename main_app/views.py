@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Plant
+from .forms import WateringForm
 
 # Create your views here.
 def home(request):
@@ -14,4 +15,8 @@ def plants_index(request):
 
 def plants_detail(request, plant_id):
     plant = Plant.objects.get(id=plant_id)
-    return render(request, 'plants/detail.html', { 'plant': plant })
+    watering_form = WateringForm()
+    return render(request, 'plants/detail.html', {
+        'plant': plant,
+        'watering_form': watering_form
+        })

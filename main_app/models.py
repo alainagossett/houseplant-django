@@ -14,7 +14,7 @@ class Plant(models.Model):
 
 
 class Watering(models.Model):
-    date = models.DateField('watering_date')
+    date = models.DateField('watering date')
     rotated = models.BooleanField(default=False)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
