@@ -16,3 +16,15 @@ footer {
 a {
     color: #388E3C
 }
+
+.datepicker-date-display, .datepicker-table td.is-selected {
+    background-color: #90CAF9 !important;
+}
+
+.datepicker-cancel, .datepicker-done {
+    color: #90CAF9;
+}
+
+.waves-effect input[type="submit"] {
+    color: white !important;
+}

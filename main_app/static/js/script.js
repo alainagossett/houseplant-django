@@ -10,4 +10,4 @@ M.Datepicker.init(dateEl, {
 
 const checkedEl = document.getElementById('id_watered');
 
-M.FormSelect.init(checkedEl);
+M.Checkbox.init(checkedEl);

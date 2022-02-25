@@ -24,7 +24,7 @@
         <form action="" method="POST">
             {% csrf_token %}
             {{ watering_form.as_p }}
-            <input type="submit" class="waves-effect waves-light btn" value="Water" />
+            <input type="submit" class="waves-effect waves-light btn blue lighten-3" value="Water" />
         </form>
         <table class="striped">
             <thead>
@@ -37,7 +37,7 @@
                 {% for watering in plant.watering_set.all %}
                 <tr>
                     <td>{{ watering.date }}</td>
-                    <td>{{ watering.watered }}</td>
+                    <!-- <td>{{ watering.watered }}</td> -->
                     <!--TO DO: FIGURE OUT HOW TO MAKE CHECKBOX APPEAR ON PAGE
                     it works if you add a <span> under the input field in the form
                     -->
