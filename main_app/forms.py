@@ -4,4 +4,4 @@ from .models import Watering
 class WateringForm(ModelForm):
     class Meta:
         model = Watering
-        fields = ('date', 'rotated')
+        fields = ('date', 'watered')

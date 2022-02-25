@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Plant
 from .forms import WateringForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -21,6 +21,14 @@ def plants_detail(request, plant_id):
         'plant': plant,
         'watering_form': watering_form
         })
+
+def add_watering(request, plant_id):
+    form = WateringForm(request.POST)
+    if form.isvalid():
+        new_watering = form.save(commit=False)
+        new_watering.plant_id = plant_id
+        new_watering.save()
+    return redirect('detail', plant_id=plant_id)
 
 class PlantCreate(CreateView):
     model = Plant
