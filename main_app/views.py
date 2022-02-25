@@ -29,3 +29,7 @@ class PlantCreate(CreateView):
 class PlantUpdate(UpdateView):
     model = Plant
     fields = ('description', 'issues', 'water')
+
+class PlantDelete(DeleteView):
+    model = Plant
+    success_url = '/plants/'
