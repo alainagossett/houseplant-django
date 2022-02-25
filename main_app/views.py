@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Plant
 from .forms import WateringForm
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def home(request):
@@ -20,3 +21,7 @@ def plants_detail(request, plant_id):
         'plant': plant,
         'watering_form': watering_form
         })
+
+class PlantCreate(CreateView):
+    model = Plant
+    fields = '__all__'
