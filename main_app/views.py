@@ -25,3 +25,7 @@ def plants_detail(request, plant_id):
 class PlantCreate(CreateView):
     model = Plant
     fields = '__all__'
+
+class PlantUpdate(UpdateView):
+    model = Plant
+    fields = ('description', 'issues', 'water')

@@ -12,6 +12,9 @@
         <p><strong>Watering Needs:</strong> {{ plant.water }}</p>
         <p><strong>Common Issues:</strong> {{ plant.issues }}</p>
     </div>
+    <div class="card-action">
+        <a href="{% url 'plants_update' plant.id %}">Edit</a>
+    </div>
 </div>
 
 {% endblock %}
