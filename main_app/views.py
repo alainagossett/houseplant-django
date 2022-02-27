@@ -56,3 +56,11 @@ class AccessoryCreate(CreateView):
     model = Accessory
     fields = '__all__'
     success_url = '/accessories/'
+
+class AccessoryUpdate(UpdateView):
+    model = Accessory
+    fields = ('name', 'description')
+
+class AccessoryDelete(DeleteView):
+    model = Accessory
+    success_url = '/accessories/'
