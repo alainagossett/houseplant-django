@@ -51,3 +51,8 @@ class AccessoryList(ListView):
 class AccessoryDetail(DetailView):
     model = Accessory
     template_name = 'accessories/detail.html'
+
+class AccessoryCreate(CreateView):
+    model = Accessory
+    fields = '__all__'
+    success_url = '/accessories/'
