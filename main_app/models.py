@@ -19,7 +19,6 @@ class Plant(models.Model):
 
 class Watering(models.Model):
     date = models.DateField('watering date')
-    watered = models.BooleanField(default=False)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
     def __str__(self):

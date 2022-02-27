@@ -23,31 +23,19 @@
     <div class="col s6">
         <form action="{% url 'add_watering' plant.id %}" method="POST">
             {% csrf_token %}
-            <!-- {{ watering_form.as_p }} -->
-            <input type="text" class="datepicker">
-            <p>
-                <label>
-                    <input type="checkbox" />
-                    <span>Water</span>
-                </label>
-            </p>
+            {{ watering_form.as_p }}
             <input type="submit" class="waves-effect waves-light btn blue lighten-3" value="Water" />
         </form>
         <table class="striped">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Watered?</th>
+                    <th>Date last Watered</th>
                 </tr>
             </thead>
             <tbody>
                 {% for watering in plant.watering_set.all %}
                 <tr>
                     <td>{{ watering.date }}</td>
-                    <td>{{ watering.watered }}</td>
-                    <!--TO DO: FIGURE OUT HOW TO MAKE CHECKBOX APPEAR ON PAGE
-                    it works if you add a <span> under the input field in the form
-                    -->
                 </tr>
                 {% endfor %}
             </tbody>
