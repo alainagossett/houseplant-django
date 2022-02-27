@@ -26,7 +26,6 @@ def add_watering(request, plant_id):
     form = WateringForm(request.POST)
     if form.is_valid():
         new_watering = form.save(commit=False)
-        Watering.objects.all().update()
         new_watering.plant_id = plant_id
         new_watering.save()
     return redirect('detail', plant_id=plant_id)
