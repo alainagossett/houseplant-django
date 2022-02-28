@@ -15,8 +15,8 @@
                 <p><strong>Common Issues:</strong> {{ plant.issues }}</p>
             </div>
             <div class="card-action">
-                <a href="{% url 'plants_update' plant.id %}">Edit</a>
-                <a href="{% url 'plants_delete' plant.id %}">Delete</a>
+                <a href="{% url 'plants_update' plant.id %}"><i class="small material-icons">edit</i></a>
+                <a href="{% url 'plants_delete' plant.id %}"><i class="small material-icons">delete</i></a>
             </div>
         </div>
     </div>

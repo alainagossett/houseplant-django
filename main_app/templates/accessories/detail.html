@@ -9,8 +9,8 @@
         <p>Description: {{ accessory.description }}</p>
     </div>
     <div class="card-action">
-        <a href="{% url 'accessory_update' accessory.id %}">Edit</a>
-        <a href="{% url 'accessory_delete' accessory.id %}">Delete</a>
+        <a href="{% url 'accessory_update' accessory.id %}"><i class="small material-icons">edit</i></a>
+        <a href="{% url 'accessory_delete' accessory.id %}"><i class="small material-icons">delete</i></a>
     </div>
 </div>
 

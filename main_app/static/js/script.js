@@ -1,4 +1,3 @@
-
 const dateEl = document.getElementById('id_date');
 
 M.Datepicker.init(dateEl, {
@@ -7,3 +6,4 @@ M.Datepicker.init(dateEl, {
     setDefaultDate: true,
     autoClose: true
 });
+
