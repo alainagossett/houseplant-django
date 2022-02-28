@@ -40,6 +40,10 @@ def assoc_accessory(request, plant_id, accessory_id):
     Plant.objects.get(id=plant_id).accessories.add(accessory_id)
     return redirect('detail', plant_id=plant_id)
 
+def unassoc_accessory(request, plant_id, accessory_id):
+    Plant.objects.get(id=plant_id).accessories.remove(accessory_id)
+    return redirect('detail', plant_id=plant_id)
+
 class PlantCreate(CreateView):
     model = Plant
     fields = '__all__'

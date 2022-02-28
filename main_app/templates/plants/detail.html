@@ -55,6 +55,12 @@
                     <span class="card-title">
                         <span class="{{ accessory.color.lower }}-text">{{ accessory.name }}</span>
                     </span>
+                    <div class="card-action">
+                        <form action="{% url 'unassoc_accessory' plant.id accessory.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn orange accent-2">Remove<i class="small material-icons right">remove_circle</i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -75,7 +81,7 @@
                 <div class="card-action">
                     <form action="{% url 'assoc_accessory' plant.id accessory.id %}" method="POST">
                         {% csrf_token %}
-                        <button type="submit" class="btn green">Add</button>
+                        <button type="submit" class="btn green">Add<i class="small material-icons right">add</i></button>
                     </form>
                 </div>
             </div>
