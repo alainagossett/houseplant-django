@@ -46,7 +46,7 @@ def unassoc_accessory(request, plant_id, accessory_id):
 
 class PlantCreate(CreateView):
     model = Plant
-    fields = '__all__'
+    fields = ('name', 'description', 'sunlight', 'water', 'issues')
 
 class PlantUpdate(UpdateView):
     model = Plant
