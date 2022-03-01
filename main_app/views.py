@@ -1,9 +1,17 @@
 from django.shortcuts import redirect, render
-from .models import Plant, Watering, Accessory
-from .forms import WateringForm
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Plant, Accessory, Photo
+from .forms import WateringForm
+
+import boto3
+import uuid
+
+session = boto3.Session(profile_name='plant_collector')
+
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com'
+BUCKET = 'plantcollector-akg-bucket'
 
 # Create your views here.
 def home(request):
@@ -42,6 +50,23 @@ def assoc_accessory(request, plant_id, accessory_id):
 
 def unassoc_accessory(request, plant_id, accessory_id):
     Plant.objects.get(id=plant_id).accessories.remove(accessory_id)
+    return redirect('detail', plant_id=plant_id)
+
+def add_photo(request, plant_id):
+    photo_file = request.FILES.get('photo-file')
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            photo = Photo(url=url, plant_id=plant_id)
+            photo.save()
+        except Exception as error:
+            print('**********************')
+            print('An error occured while uploading to S3')
+            print(error)
+            print('**********************')
     return redirect('detail', plant_id=plant_id)
 
 class PlantCreate(CreateView):

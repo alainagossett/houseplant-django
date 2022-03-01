@@ -17,4 +17,5 @@ urlpatterns = [
     path('accessories/<int:pk>/delete/', views.AccessoryDelete.as_view(), name='accessory_delete'),
     path('plants/<int:plant_id>/assoc_accessory/<int:accessory_id>/', views.assoc_accessory, name='assoc_accessory'),
     path('plants/<int:plant_id>/unassoc_accessory/<int:accessory_id>/', views.unassoc_accessory, name='unassoc_accessory'),
+    path('plants<int:plant_id>/add_photo/', views.add_photo, name='add_photo'),
 ]
