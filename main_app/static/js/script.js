@@ -6,4 +6,3 @@ M.Datepicker.init(dateEl, {
     setDefaultDate: true,
     autoClose: true
 });
-
