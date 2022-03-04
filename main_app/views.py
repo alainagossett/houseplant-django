@@ -8,8 +8,6 @@ from .forms import WateringForm
 import boto3
 import uuid
 
-session = boto3.Session(profile_name='plant-collector')
-
 S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
 BUCKET = 'plantcollector-akg-bucket'
 
